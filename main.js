@@ -94,7 +94,6 @@ const createStudentComponent = (students) => {
 const studentContainer = document.querySelector("#container")
 
 for (let i = 0; i < students.length; i++) {
-    const student = students[i]
     studentContainer.innerHTML += createStudentComponent(
         students[i]
     )
