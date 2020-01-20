@@ -73,30 +73,24 @@ const students = [
     }
 ]
 
-const h1 = (text) => {
-    return `<h1>${text}</h1>`
+const element = (type, content, value) => {
+    return `<${type} class="${value}">${content}</${type}>`
 };
-const section = (word) => {
-    return `<section>${word}</section>`
-};
-const aside = (words) => {
-    return `<aside>${words}</aside>`
-}
 
 const createStudentComponent = (students) => {
     if (students.score < 60) {
         return `
         <div class="student failing">
-            ${h1(students.name)}
-            ${section(students.subject)}
-            ${aside(students.info)}
+            ${element("h1", students.name, "")}
+            ${element("section", students.subject, "")}
+            ${element("aside", students.info, "")}
         </div>`;
     } else {
         return `
         <div class="student">
-            ${h1(students.name)}
-            ${section(students.subject)}
-            ${aside(students.info)}
+            ${element("h1", students.name, "xx-large passing")}
+            ${element("section", students.subject, "bordered dashed section--padded")}
+            ${element("aside", students.info, "pushRight")}
         </div>`;
     }
 }
